@@ -1,0 +1,266 @@
+/* Bliss Keycloak Theme — Login Page */
+/* Full override — prevents parent theme interference */
+
+:root {
+    --bliss-primary: #6366f1;
+    --bliss-primary-hover: #4f46e5;
+    --bliss-card-bg: #ffffff;
+    --bliss-text: #1e293b;
+    --bliss-text-muted: #64748b;
+    --bliss-border: #e2e8f0;
+    --bliss-radius: 12px;
+}
+
+/* Reset all Keycloak parent styles */
+* {
+    box-sizing: border-box;
+}
+
+#kc-header,
+#kc-header-wrapper,
+#kc-content-wrapper,
+#kc-locale,
+.kc-logo-text,
+.login-pf-page,
+.card-pf,
+.login-pf-header,
+.login-pf-signup {
+    all: unset !important;
+    display: none !important;
+}
+
+/* Background — solid gradient, single fill, no repeat */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    overflow-x: hidden !important;
+}
+
+/* Center the card */
+.bliss-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+    padding: 2rem !important;
+}
+
+/* Login card */
+.bliss-card {
+    background: var(--bliss-card-bg) !important;
+    border-radius: var(--bliss-radius) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    padding: 2.5rem !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    position: relative !important;
+}
+
+/* Logo */
+.bliss-logo {
+    text-align: center !important;
+    margin-bottom: 2rem !important;
+}
+
+.bliss-logo img {
+    max-height: 48px !important;
+    width: auto !important;
+}
+
+/* Floating label input group — Angular Material style */
+.bliss-input-group {
+    position: relative !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.bliss-input-group input {
+    width: 100% !important;
+    height: 56px !important;
+    padding: 1.25rem 1rem 0.5rem 1rem !important;
+    border: 1px solid var(--bliss-border) !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    color: var(--bliss-text) !important;
+    background: transparent !important;
+    outline: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.bliss-input-group input:focus {
+    border-color: var(--bliss-primary) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
+
+.bliss-input-group label {
+    position: absolute !important;
+    left: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 1rem !important;
+    color: var(--bliss-text-muted) !important;
+    pointer-events: none !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: var(--bliss-card-bg) !important;
+    padding: 0 4px !important;
+    line-height: 1 !important;
+}
+
+/* Floating label — moves up when input is focused or has content */
+.bliss-input-group input:focus ~ label,
+.bliss-input-group input:not(:placeholder-shown) ~ label {
+    top: 0 !important;
+    transform: translateY(-50%) !important;
+    font-size: 0.75rem !important;
+    color: var(--bliss-primary) !important;
+}
+
+/* Primary button */
+.bliss-btn {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.875rem 1.5rem !important;
+    background: var(--bliss-primary) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+    cursor: pointer !important;
+    transition: background 0.2s ease !important;
+    margin-top: 0.5rem !important;
+    height: auto !important;
+    line-height: normal !important;
+}
+
+.bliss-btn:hover {
+    background: var(--bliss-primary-hover) !important;
+}
+
+/* Links */
+.bliss-links {
+    margin-top: 1.5rem !important;
+    text-align: center !important;
+}
+
+.bliss-links a {
+    color: var(--bliss-primary) !important;
+    text-decoration: none !important;
+    font-size: 0.875rem !important;
+}
+
+.bliss-links a:hover {
+    text-decoration: underline !important;
+}
+
+/* Alert messages */
+.bliss-alert {
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 0.875rem !important;
+}
+
+.bliss-alert-error {
+    background: #fef2f2 !important;
+    border: 1px solid #fecaca !important;
+    color: #991b1b !important;
+}
+
+.bliss-alert-success {
+    background: #f0fdf4 !important;
+    border: 1px solid #bbf7d0 !important;
+    color: #166534 !important;
+}
+
+.bliss-alert-warning {
+    background: #fffbeb !important;
+    border: 1px solid #fde68a !important;
+    color: #92400e !important;
+}
+
+.bliss-alert-info {
+    background: #eff6ff !important;
+    border: 1px solid #bfdbfe !important;
+    color: #1e40af !important;
+}
+
+/* Language selector */
+.bliss-locale {
+    text-align: center !important;
+    margin-top: 1.5rem !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid var(--bliss-border) !important;
+}
+
+.bliss-locale a {
+    display: inline-block !important;
+    padding: 0.35rem 0.5rem !important;
+    margin: 0 0.35rem !important;
+    font-size: 1.4rem !important;
+    text-decoration: none !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    opacity: 0.6 !important;
+}
+
+.bliss-locale a:hover,
+.bliss-locale a.active {
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+}
+
+/* Remember me checkbox */
+.bliss-remember {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    font-size: 0.875rem !important;
+    color: var(--bliss-text-muted) !important;
+}
+
+.bliss-remember input[type="checkbox"] {
+    accent-color: var(--bliss-primary) !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.bliss-remember label {
+    position: static !important;
+    transform: none !important;
+    font-size: 0.875rem !important;
+    color: var(--bliss-text-muted) !important;
+    pointer-events: auto !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+/* Info text */
+.bliss-info {
+    margin-top: 1.5rem !important;
+    text-align: center !important;
+    color: var(--bliss-text-muted) !important;
+    font-size: 0.875rem !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .bliss-container {
+        padding: 1rem !important;
+    }
+    .bliss-card {
+        padding: 1.5rem !important;
+    }
+}

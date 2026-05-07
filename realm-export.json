@@ -1,0 +1,52 @@
+{
+  "realm": "bliss-default",
+  "enabled": true,
+  "displayName": "Bliss Default Realm",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "registrationEmailAsUsername": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "verifyEmail": true,
+  "sslRequired": "none",
+  "loginTheme": "bliss",
+  "accountTheme": "bliss",
+  "emailTheme": "bliss",
+  "internationalizationEnabled": true,
+  "supportedLocales": ["en", "pt-BR", "es"],
+  "defaultLocale": "pt-BR",
+  "roles": {
+    "realm": [
+      { "name": "TENANT_ADMIN", "description": "Full tenant administration" },
+      { "name": "RECRUITER_LEAD", "description": "Lead recruiter with team management" },
+      { "name": "RECRUITER", "description": "Standard recruiter" },
+      { "name": "HIRING_MANAGER", "description": "Hiring manager for job openings" },
+      { "name": "INTERVIEWER", "description": "Interviewer with limited access" },
+      { "name": "VIEWER", "description": "Read-only access" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "bliss-app",
+      "enabled": true,
+      "publicClient": true,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "redirectUris": ["*"],
+      "webOrigins": ["*"],
+      "protocol": "openid-connect",
+      "defaultClientScopes": ["openid", "profile", "email", "roles"]
+    }
+  ],
+  "smtpServer": {
+    "host": "mailhog",
+    "port": "1025",
+    "from": "noreply@bliss.local",
+    "fromDisplayName": "Bliss",
+    "ssl": "false",
+    "starttls": "false",
+    "auth": "false"
+  }
+}
