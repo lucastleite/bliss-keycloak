@@ -14,4 +14,4 @@ COPY --from=builder /opt/keycloak/ /opt/keycloak/
 COPY realm-export.json /opt/keycloak/data/import/realm-export.json
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start", "optimized", "--import-realm", "--health-enabled=true", "--hostname-strict=false", "--proxy=edge", "--http-enabled=true"]
+CMD ["start", "--optimized", "--import-realm", "--health-enabled=true", "--hostname-strict=false", "--proxy=edge", "--http-enabled=true"]
