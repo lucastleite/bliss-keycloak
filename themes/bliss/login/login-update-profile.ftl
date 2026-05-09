@@ -14,12 +14,7 @@
                 <label for="lastName">${msg("lastName")}</label>
             </div>
 
-            <div class="bliss-input-group">
-                <input id="email" name="email" type="email" placeholder=" "
-                       value="${(user.email!'')}"
-                       <#if user?? && user.email?? && user.email?has_content>readonly</#if>>
-                <label for="email">${msg("email")}</label>
-            </div>
+            <input type="hidden" name="email" value="${(user.email!'')}"
 
             <input class="bliss-btn" type="submit" value="${msg("doSubmit")}">
         </form>
