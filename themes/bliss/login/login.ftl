@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayMessage=!messagesPerField.existsError('username','password') displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
+<@layout.registrationLayout displayMessage=true displayInfo=realm.password && realm.registrationAllowed && !registrationDisabled??; section>
     <#if section = "form">
         <form id="kc-form-login" action="${url.loginAction}" method="post">
             <div class="bliss-input-group">
@@ -22,7 +22,7 @@
                 </div>
             </#if>
 
-            <input class="bliss-btn" type="submit" value="${msg("doLogIn")}">
+            <button class="bliss-btn" type="submit">${msg("doLogIn")}</button>
 
             <div class="bliss-links">
                 <#if realm.resetPasswordAllowed>

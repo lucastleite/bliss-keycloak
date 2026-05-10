@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayInfo=true displayMessage=!messagesPerField.existsError('username'); section>
+<@layout.registrationLayout displayInfo=true displayMessage=true; section>
     <#if section = "form">
         <form id="kc-reset-password-form" action="${url.loginAction}" method="post">
             <div class="bliss-input-group">
@@ -7,7 +7,7 @@
                 <label for="username">${msg("email")}</label>
             </div>
 
-            <input class="bliss-btn" type="submit" value="${msg("doSubmit")}">
+            <button class="bliss-btn" type="submit">${msg("doLogIn")}</button>
 
             <div class="bliss-links">
                 <a href="${url.loginUrl}">${msg("backToLogin")}</a>
