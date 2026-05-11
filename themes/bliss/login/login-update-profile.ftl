@@ -14,7 +14,7 @@
                 <label for="lastName">${msg("lastName")}</label>
             </div>
 
-            <input type="hidden" name="email" value="${(user.email!'')}"
+            <input type="hidden" name="email" value="${(user.email!'')}">
 
             <input class="bliss-btn" type="submit" value="${msg("doSubmit")}">
         </form>
