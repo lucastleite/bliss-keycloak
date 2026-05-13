@@ -125,6 +125,14 @@ html, body {
     color: var(--bliss-primary) !important;
 }
 
+/* Handle browser autofill (Chrome, Safari, Edge) */
+.bliss-input-group input:-webkit-autofill ~ label {
+    top: 0 !important;
+    transform: translateY(-50%) !important;
+    font-size: 0.75rem !important;
+    color: var(--bliss-primary) !important;
+}
+
 /* Primary button */
 .bliss-btn {
     display: block !important;
@@ -244,6 +252,8 @@ html, body {
     align-items: center !important;
     justify-content: center !important;
     transition: color 0.2s ease !important;
+    z-index: 2 !important;
+    height: 56px !important;
 }
 
 .bliss-toggle-password:hover {
