@@ -1,6 +1,13 @@
 /* Bliss Keycloak Theme — Login Page */
 /* Full override — prevents parent theme interference */
 
+/* Autofill detection animation (cross-browser) */
+@keyframes onAutoFillStart { from {} to {} }
+
+input:-webkit-autofill {
+    animation-name: onAutoFillStart !important;
+}
+
 :root {
     --bliss-primary: #6366f1;
     --bliss-primary-hover: #4f46e5;
@@ -126,7 +133,18 @@ html, body {
 }
 
 /* Handle browser autofill (Chrome, Safari, Edge) */
-.bliss-input-group input:-webkit-autofill ~ label {
+.bliss-input-group input:-webkit-autofill ~ label,
+.bliss-input-group input:-webkit-autofill:hover ~ label,
+.bliss-input-group input:-webkit-autofill:focus ~ label {
+    top: 0 !important;
+    transform: translateY(-50%) !important;
+    font-size: 0.75rem !important;
+    color: var(--bliss-primary) !important;
+}
+
+/* Fallback: if input has any value attribute set (covers autofill edge cases) */
+.bliss-input-group input:not([value=""]):not(:placeholder-shown) ~ label,
+.bliss-input-group.has-value label {
     top: 0 !important;
     transform: translateY(-50%) !important;
     font-size: 0.75rem !important;
@@ -241,19 +259,18 @@ html, body {
 .bliss-toggle-password {
     position: absolute !important;
     right: 0.75rem !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
+    top: 0 !important;
+    height: 56px !important;
     background: none !important;
     border: none !important;
     cursor: pointer !important;
     color: var(--bliss-text-muted) !important;
-    padding: 0.25rem !important;
+    padding: 0 0.25rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     transition: color 0.2s ease !important;
     z-index: 2 !important;
-    height: 56px !important;
 }
 
 .bliss-toggle-password:hover {

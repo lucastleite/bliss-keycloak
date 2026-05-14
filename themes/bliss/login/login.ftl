@@ -40,6 +40,50 @@
                         eyeClosed.style.display = 'none';
                     }
                 }
+
+                // Detect autofill and force label float
+                function checkAutofill() {
+                    document.querySelectorAll('.bliss-input-group input').forEach(function(input) {
+                        // Check if input has value (autofill or saved password)
+                        if (input.value && input.value.length > 0) {
+                            input.parentElement.classList.add('has-value');
+                        }
+                        // Also check via computed style (Chrome autofill changes background)
+                        try {
+                            var style = window.getComputedStyle(input, ':-webkit-autofill');
+                            if (style) {
+                                input.parentElement.classList.add('has-value');
+                            }
+                        } catch(e) {}
+                    });
+                }
+
+                // Run checks at multiple intervals to catch delayed autofill
+                window.addEventListener('DOMContentLoaded', function() {
+                    checkAutofill();
+                    setTimeout(checkAutofill, 100);
+                    setTimeout(checkAutofill, 500);
+                    setTimeout(checkAutofill, 1000);
+                });
+
+                // Also detect on any input change
+                document.addEventListener('input', function(e) {
+                    if (e.target.closest('.bliss-input-group')) {
+                        var group = e.target.closest('.bliss-input-group');
+                        if (e.target.value && e.target.value.length > 0) {
+                            group.classList.add('has-value');
+                        } else {
+                            group.classList.remove('has-value');
+                        }
+                    }
+                });
+
+                // Detect autofill via animationstart (most reliable cross-browser method)
+                document.addEventListener('animationstart', function(e) {
+                    if (e.animationName === 'onAutoFillStart') {
+                        e.target.parentElement.classList.add('has-value');
+                    }
+                }, true);
             </script>
 
             <#if realm.rememberMe && !usernameEditDisabled??>
